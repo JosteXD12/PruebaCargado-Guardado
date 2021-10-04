@@ -3,6 +3,7 @@
 #include <fstream>
 #include <stdlib.h>
 #include "iostream"
+#include <stack>
 
 using namespace std;
 using namespace sf;
@@ -15,6 +16,8 @@ public:
 	void Gameloop();
 	void Eventos();
 	void Validacion();
+	void LlenarPila();
+	void llenar();
 
 	
 
@@ -27,6 +30,10 @@ private:
 	Event* evento;
 	ifstream Lec;
 	string Str;
+	stack<char>FPila;
+	char Cadena;
+	string Muro = "#";
+	int i = 0;
 };
 
 

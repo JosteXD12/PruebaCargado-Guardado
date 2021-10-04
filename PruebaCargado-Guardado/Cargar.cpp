@@ -2,21 +2,20 @@
 
 Cargado::Cargado(int resolX, int ResolY, string titulo) {
 	pantalla = new RenderWindow(VideoMode(resolX, ResolY), titulo);
-	rec[0].setSize(Vector2f(64, 64));
-	rec[0].setPosition(Vector2f(200, 200));
 	evento = new Event;
+	Validacion();
+	LlenarPila();
+	llenar();
 	Gameloop();
-
 }
 
 void Cargado::Gameloop() {
-	Validacion();
 	while (pantalla->isOpen())
 	{
 		Dibujar();
 		Eventos();
 	}
-	
+
 }
 
 void Cargado::Dibujar() {
@@ -50,6 +49,24 @@ void Cargado::Validacion() {
 		}
 	}
 	Lec.close();
+}
+void Cargado::LlenarPila() {
+	for (i = 0; i < Str.length(); i++)
+	{
+		Cadena = Str[i];
+		FPila.push(Cadena);
+	}
+}
+void Cargado::llenar() {
+	while (!FPila.empty())
+	{
+		if (FPila.top() == Muro) {
+			rec[0].setSize(Vector2f(64, 64));
+			rec[0].setPosition(Vector2f(200, 200));
+			break;
+		}
+	}
+
 }
 
 
