@@ -20,6 +20,7 @@ void Cargado::Gameloop() {
 
 void Cargado::Dibujar() {
 	pantalla->draw(rec[0]);
+	pantalla->draw(rec[1]);
 	pantalla->display();
 }
 void Cargado::Eventos() {
@@ -58,11 +59,16 @@ void Cargado::LlenarPila() {
 	}
 }
 void Cargado::llenar() {
+	int Iteracion = 0;
 	while (!FPila.empty())
 	{
 		if (FPila.top() == Muro) {
-			rec[0].setSize(Vector2f(64, 64));
-			rec[0].setPosition(Vector2f(200, 200));
+			i++;
+			rec[Iteracion].setSize(Vector2f(64, 64));
+			rec[Iteracion].setPosition(Vector2f(200*Iteracion, 200*Iteracion));
+			Iteracion = Iteracion + 1;
+		}
+		if (Iteracion >= 5) {
 			break;
 		}
 	}

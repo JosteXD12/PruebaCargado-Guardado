@@ -34,6 +34,7 @@ private:
 	char Cadena;
 	string Muro = "#";
 	int i = 0;
+	
 };
 
 
