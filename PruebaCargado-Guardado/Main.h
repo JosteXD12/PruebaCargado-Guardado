@@ -15,9 +15,12 @@ public:
 	void Dibujar();
 	void Gameloop();
 	void Eventos();
-	void Validacion();
-	void LlenarPila();
-	void llenar();
+	void ValidacionObjetos();
+	void LlenarPilaObjetos();
+	void llenarObjetos();
+	void ValidacionCordenadas();
+	void LLenarPilaCordenadas();
+	void llenarCordenadas();
 
 	
 
@@ -26,15 +29,20 @@ public:
 
 private:
 	RenderWindow* pantalla;
-	RectangleShape rec[5];
+	//RectangleShape rec[4];
 	Event* evento;
-	ifstream Lec;
-	string Str;
+	ifstream LecObjetos;
+	ifstream LecCordenadas;
+	string StrObjetos;
+	string StrCordenadas;
 	stack<char>FPila;
-	char Cadena;
+	stack<int>CPila;
+	char CadenaObjeto;
+	char CadenaCodenada;
 	string Muro = "#";
 	int i = 0;
-	
+	int Iteracion = 0;
+	int Prueba;
 };
 
 
